@@ -1,0 +1,1 @@
+kamar_delete.php
