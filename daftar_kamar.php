@@ -20,14 +20,24 @@
         <div class="col">
           <div class="card shadow-sm">
             <img src="image/<?php echo $data['gambar']; ?>" class="bd-placeholder-img card-img-top" width="100%" height="225"role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+            <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><?php echo $data['tipe_kamar']; ?></text>
 
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <ul>Fasilitas
+                <?php
+                  $queryfas = mysqli_query($kon, "SELECT * FROM fasilitas_kamar WHERE kamar_id = '$data[id]'");
+                  while ($fasilitas = mysqli_fetch_array($queryfas)) {
+                ?>
+                <li><?php echo $fasilitas['fasilitas']; ?></li>
+
+                <?php
+                  }
+                ?>
+              </ul>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                 </div>
-                <small class="text-muted">9 mins</small>
+                <small class="text-muted"><?php echo $data['id']; ?></small>
               </div>
             </div>
           </div>
