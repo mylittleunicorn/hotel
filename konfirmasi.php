@@ -18,7 +18,7 @@ if ($checkout > $checkin) {
   	}
 
   	$totalbayar  = $selisih * $jumlahkamar * $harga;
-  	$input = mysqli_query($kon, "INSERT INTO reservasi VALUES ('', '$namapemesan', '$email', '$nohp', '$idtipekamar', '$checkin', '$checkout', '$totalbayar', '')");
+  	$input = mysqli_query($kon, "INSERT INTO reservasi VALUES ('', '$namapemesan', '$email', '$nohp', '$idtipekamar', '$checkin', '$checkout', '$totalbayar', 'proses')");
 ?>
 		<section class="py-5 text-center container-fluid bg">
     <div class="container">
@@ -30,7 +30,7 @@ if ($checkout > $checkin) {
     </div>
   </section>
 
-  <div class="px-4 pt-5 my-5 border-bottom container d-flex justify-content-center" >
+  <div class="px-4 pt-5 my-5 border-bottom container d-flex justify-content-center " id="printableArea">
   	<div class="col-md-8">
   	<table class="table">
 	    <tr>
@@ -75,7 +75,26 @@ if ($checkout > $checkin) {
 	    </tr>
     </table>
     </div>
+
   </div>
+  <div class="row text-center">
+		<div class="col-md-12">
+			<input type="button" onclick="printDiv('printableArea')" value="print a div!" class="m-3" />
+		</div>
+	</div>
+	<script type="text/javascript">
+		function printDiv(printableArea) {
+     var printContents = document.getElementById(printableArea).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+	</script>
+
 <?php
   }else{
   	echo "aaaa";

@@ -36,7 +36,7 @@
 		    <select class="form-select" id="inputCity" name="status">
 				  <option selected value="proses">Proses</option>
 				  <option value="checkin">Check IN</option>
-				  <option value="checkin">Check OUT</option>
+				  <option value="checkout">Check OUT</option>
 				</select>
 		  </div>
 		  <div class="col-12">

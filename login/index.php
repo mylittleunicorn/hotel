@@ -151,7 +151,7 @@ session_start();
               break;
           }
         }else{
-          include "kamar_list.php";
+          include "reservasi_list.php";
         }
        
       ?>

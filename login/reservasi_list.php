@@ -51,9 +51,17 @@
         <td><?php echo $data['checkout'] ?></td>
         <td><?php echo $data['jumlah'] ?></td>
         <td><?php echo $data['status'] ?></td>
-        <td>
-          <a href="index.php?page=reservasi-edit&id=<?php echo $data['id']; ?>">ubah</a>
-        </td>
+        <?php if ($_SESSION['role'] == 'admin'): ?>
+           <td>
+            <a href="index.php?page=reservasi-edit&id=<?php echo $data['id']; ?>">ubah</a> | 
+            <a href="reservasi_delete.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Anda yakin mau menghapus cerita ini ?')">Delete</a>
+          </td>
+        <?php else: ?>
+          <td>
+            <a href="index.php?page=reservasi-edit&id=<?php echo $data['id']; ?>">ubah</a>
+          </td>
+        <?php endif ?>
+        
       </tr>
     <?php } ?>
     </tbody>
