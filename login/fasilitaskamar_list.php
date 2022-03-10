@@ -32,8 +32,8 @@
         <td><?php echo $data['tipe_kamar'] ?></td>
         <td><?php echo $data['fasilitas'] ?></td>
         <td>
-          <a href="">Edit</a> | 
-          <a href="">Hapus</a>
+          <a href="index.php?page=fasilitaskamar-edit&id=<?php echo $data['fasilitaskamar_id'] ?>">Edit</a> | 
+          <a href="fasilitaskamar_delete.php?id=<?php echo $data['fasilitaskamar_id']; ?>" onclick="return confirm('Anda yakin mau menghapus ini ?')">Hapus</a>
         </td>
       </tr>
     <?php } ?>

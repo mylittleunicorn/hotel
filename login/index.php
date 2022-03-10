@@ -1,6 +1,7 @@
 <?php
 session_start();
   if($_SESSION['role']==""){
+
     header("location:login.php");
   }
 ?>
@@ -59,6 +60,7 @@ session_start();
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
+        <?php if ($_SESSION['role'] == 'admin'): ?>
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php?page=kamar-list">
@@ -85,6 +87,17 @@ session_start();
             </a>
           </li>
         </ul>
+        <?php else: ?>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=reservasi-list">
+              <span data-feather="shopping-cart"></span>
+              Reservasi
+            </a>
+          </li>
+        </ul>
+        <?php endif ?>
+        
       </div>
     </nav>
 
@@ -114,7 +127,16 @@ session_start();
               break;
             case 'reservasi-list':
               include "reservasi_list.php";
-              break;     
+              break;
+            case 'fasilitashotel-edit':
+              include "fasilitashotel_edit.php";
+              break;  
+            case 'fasilitaskamar-edit':
+              include "fasilitaskamar_edit.php";
+              break;
+              case 'kamar-edit':
+              include "kamar_edit.php";
+              break;   
             default:
               echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
               break;

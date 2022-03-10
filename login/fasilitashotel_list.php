@@ -33,6 +33,10 @@
         <td><?php echo $data['nama_fasilitashotel'] ?></td>
         <td><?php echo $data['keterangan'] ?></td>
         <td><img src="../image/<?php echo $data['gambar']; ?>" width="100"/></td>
+        <td>
+          <a href="index.php?page=fasilitashotel-edit&id=<?php echo $data['id']; ?>">edit</a> | 
+          <a href="fasilitashotel_delete.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Anda yakin mau menghapus cerita ini ?')">Hapus</a>
+        </td>
       </tr>
     <?php } ?>
     </tbody>

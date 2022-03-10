@@ -1,5 +1,9 @@
 <?php
   include "../koneksi.php";
+  $id = $_GET['id'];
+  $edit = mysqli_query($kon, "SELECT * FROM fasilitas_hotel WHERE id='$id'");
+  while ($data = mysqli_fetch_array($edit)){
+
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -16,17 +20,18 @@
   <form method="post" action="" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="fasilitashotel" class="form-label">Fasilitas Hotel</label>
-      <input type="text" class="form-control" id="fasilitashotel" name="fasilitashotel">
+      <input type="text" class="form-control" id="fasilitashotel" name="fasilitashotel" value="<?php echo $data['nama_fasilitashotel'] ?>">
     </div>
     <div class="mb-3">
       <label for="keterangan" class="form-label">Keterangan</label>
-      <textarea class="form-control"  id="keterangan" name="keterangan"></textarea>
+      <textarea class="form-control"  id="keterangan" name="keterangan"><?php echo $data['keterangan'] ?></textarea>
     </div>
     <div class="mb-3">
       <label for="gambar" class="form-label">Gambar</label>
-      <input type="file" class="form-control" id="gambar" name="gambar">
+      <input type="file" class="form-control" id="gambar" name="gambar" value="<?php echo $data['gambar'] ?>">
     </div>
     <button type="submit" class="btn btn-primary" name="simpan">Submit</button>
+  <?php } ?>
   </form>
 </div>
 
@@ -42,7 +47,7 @@ if(isset($_POST['simpan']))
     $folder = "../image/";
     if ($type =='image/jpeg' or $type == 'image/png') {
         move_uploaded_file($temp, $folder . $name);
-        mysqli_query($kon, "insert into fasilitas_hotel (nama_fasilitashotel,keterangan,gambar) values ('$fasilitashotel','$keterangan','$name')");
+        mysqli_query($kon, "UPDATE fasilitas_hotel SET nama_fasilitashotel='$fasilitashotel', keterangan='$keterangan',gambar='$name' WHERE id='$id'");
         echo ("<script LANGUAGE='JavaScript'>
             window.location.href='index.php?page=fasilitashotel-list';
             </script>");
