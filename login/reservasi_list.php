@@ -7,17 +7,17 @@
 </div>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <form class="row g-3">
+  <form class="row g-3" method="post" action="index.php?page=cari-tanggal">
     <div class="col">
-      <input type="date" class="form-control" id="checkin" name="checkin" value="<?php echo $_POST['checkin']; ?>">
+      <input type="date" class="form-control" id="checkin" name="checkin">
     </div>
     <div class="col">
       <input type="submit" name="" value="cari" class="btn btn-primary">
     </div>
   </form>
-  <form class="row g-3">
+  <form class="row g-3" method="post" action="index.php?page=cari-nama">
     <div class="col">
-      <input type="text" class="form-control" name="checkin">
+      <input type="text" class="form-control" name="nama">
     </div>
     <div class="col">
       <input type="submit" name="" value="cari" class="btn btn-primary">
@@ -50,9 +50,9 @@
         <td><?php echo $data['checkin'] ?></td>
         <td><?php echo $data['checkout'] ?></td>
         <td><?php echo $data['jumlah'] ?></td>
-        <td><img src="../image/<?php echo $data['gambar']; ?>" width="100"/></td>
+        <td><?php echo $data['status'] ?></td>
         <td>
-          <a href="">ubah</a>
+          <a href="index.php?page=reservasi-edit&id=<?php echo $data['id']; ?>">ubah</a>
         </td>
       </tr>
     <?php } ?>

@@ -110,6 +110,12 @@ session_start();
             case 'kamar-list':
               include "kamar_list.php";
               break;
+            case 'cari-tanggal':
+              include "caritanggal.php";
+              break;
+            case 'cari-nama':
+              include "carinama.php";
+              break;
             case 'tambah-kamar':
               include "kamar_input.php";
               break;
@@ -134,9 +140,12 @@ session_start();
             case 'fasilitaskamar-edit':
               include "fasilitaskamar_edit.php";
               break;
-              case 'kamar-edit':
+            case 'kamar-edit':
               include "kamar_edit.php";
-              break;   
+              break;
+            case 'reservasi-edit':
+              include "reservasi_edit.php";
+              break;      
             default:
               echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
               break;
