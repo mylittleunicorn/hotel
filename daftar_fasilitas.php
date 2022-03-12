@@ -20,9 +20,9 @@
         <div class="col">
           <div class="card shadow-sm">
             <img src="image/<?php echo $data['gambar']; ?>" class="bd-placeholder-img card-img-top" width="100%" height="225"role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><?php echo $data['nama_fasilitashotel'] ?></text>
 
             <div class="card-body">
+              <h5 class="card-title"><?php echo $data['nama_fasilitashotel'] ?></h5>
               <p class="card-text"><?php echo $data['keterangan'] ?></p>
             </div>
           </div>

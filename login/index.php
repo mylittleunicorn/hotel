@@ -86,6 +86,12 @@ session_start();
               Reservasi
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=user-list">
+              <span data-feather="shopping-cart"></span>
+              User
+            </a>
+          </li>
         </ul>
         <?php else: ?>
         <ul class="nav flex-column">
@@ -145,7 +151,16 @@ session_start();
               break;
             case 'reservasi-edit':
               include "reservasi_edit.php";
-              break;      
+              break; 
+            case 'user-edit':
+              include "user_edit.php";
+              break;
+            case 'user-list':
+              include "user_list.php";
+              break;  
+            case 'user-input':
+              include "user_input.php";
+              break;    
             default:
               echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
               break;
